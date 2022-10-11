@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\LoginController;
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Backend\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,3 +65,9 @@ Route::controller(UserController::class)->group(function(){
     Route::get('dashboard', 'dashboard')->name('dashboard');
 
 });
+
+Route::get('products', [ProductController::class, 'index'])->name('products');
+
+Route::post('add-product', [ProductController::class, 'addProduct'])->name('add-product');
+
+Route::get('product-list', [ProductController::class, 'getProduct'])->name('product-list');
